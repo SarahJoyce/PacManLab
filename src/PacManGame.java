@@ -11,7 +11,7 @@ public class PacManGame {
 		Ghost Pinky = new Ghost(GhostInitX, GhostInitY);
 		Ghost Clyde = new Ghost(GhostInitX, GhostInitY);
 	
-	
+		World game = new World(player, Inky, Blinky, Pinky, Clyde);
 	}
 		
 }
