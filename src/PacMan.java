@@ -13,6 +13,7 @@ public class PacMan extends MovingObjects{
 		super.yposition = ypos;
 	}
 	
+	//make the food disappear and add points to the score
 	public void eat() {}
 
 }
