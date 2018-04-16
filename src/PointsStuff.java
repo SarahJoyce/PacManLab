@@ -1,6 +1,8 @@
 
 public class PointsStuff extends GameObject {
 	
+	int totalWorth;
+	
 	private final int littleDotPoints = 10;
 	private enum fruitPoints {
 		
@@ -17,6 +19,9 @@ public class PointsStuff extends GameObject {
 		}
 	}
 
-	public PointsStuff (int xval, int yval, int pointVal) {}
+	public PointsStuff (int xval, int yval, int pointVal) {
+		super(xval, yval);
+		pointVal = totalWorth;
+	}
 
 }

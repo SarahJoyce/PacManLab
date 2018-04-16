@@ -1,16 +1,16 @@
 
 public class Ghost extends MovingObjects{
 	
-	int xpos; int ypos;
+	boolean ghostState;
 	
 	public Ghost() {
-		xpos = super.xposition;
-		ypos = super.yposition;
+		super(0,0,0);
+		ghostState = false;
 	}
 	
-	public Ghost(int xpos, int ypos) {
-		super.xposition = xpos;
-		super.yposition = ypos;
+	public Ghost(int xpos, int ypos, int dir, boolean state) {
+		super(xpos, ypos, dir);
+		ghostState = state;
 	}
 	
 	//function to determine the ghosts' random movement

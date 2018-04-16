@@ -1,5 +1,5 @@
 
-public class World implements GraphicsEngine{
+public class World extends GraphicsEngine{
 
 	//need to add positions for blocked off walls
 	

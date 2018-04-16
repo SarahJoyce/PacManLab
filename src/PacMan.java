@@ -1,16 +1,16 @@
 
 public class PacMan extends MovingObjects{
 	
-	int xpos; int ypos;
+	int points;
 	
 	public PacMan() {
-		xpos = super.xposition;
-		ypos = super.yposition;
+		super(0,0,0);
+		points = 0;
 	}
 	
-	public PacMan(int xpos, int ypos) {
-		super.xposition = xpos;
-		super.yposition = ypos;
+	public PacMan(int xpos, int ypos, int dir, int p) {
+		super(xpos, ypos, dir);
+		points = p;
 	}
 	
 	//make the food disappear and add points to the score

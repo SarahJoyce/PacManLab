@@ -8,8 +8,7 @@ public class PowerPellet extends GameObject{
 	boolean ppState = false; //the world is initially not in a power pellet state
 	
 	public PowerPellet(int xpos, int ypos) {
-		super.xposition = xpos;
-		super.yposition = ypos;
+		super(xpos, ypos);
 	}
 
 	//sets time = 15 seconds and decreases the time second by second when ppState = true;
