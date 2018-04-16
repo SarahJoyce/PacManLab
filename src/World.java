@@ -23,4 +23,6 @@ public class World implements GraphicsEngine{
 	//gets rid of objects; for example when pacman eats the pellet, it has to disappear
 	public void delete() {}
 	
+	public void update() {}
+	
 }
