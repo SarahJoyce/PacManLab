@@ -8,6 +8,9 @@ public class World extends GraphicsEngine{
 	Ghost g2 = new Ghost();
 	Ghost g3 = new Ghost();
 	Ghost g4 = new Ghost();
+	Object[][] walls;
+	enum gameThings {EMPTY, WALL, POINT, PELLET, GHOST, PACMAN;}
+	
 	
 	public World(PacMan man, Ghost g1, Ghost g2, Ghost g3, Ghost g4) {
 		man = man;
@@ -15,6 +18,24 @@ public class World extends GraphicsEngine{
 		g2 = g2;
 		g3 = g3;
 		g4 = g4;
+		walls = new Object[][] {
+			{gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL},
+			{gameThings.WALL, gameThings.PELLET, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.PELLET, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.PACMAN, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.PELLET, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.GHOST, gameThings.GHOST, gameThings.GHOST, gameThings.GHOST, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL},
+			{gameThings.WALL, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.PELLET, gameThings.WALL},
+			{gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL}
+		};
+		
 	}
 	
 	//draws the world
