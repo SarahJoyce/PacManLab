@@ -41,19 +41,19 @@ public class World extends GraphicsEngine{
 	}
 	
 	public void drawWall() {
-		print("Wall");
+		System.out.print("Wall");
 	}
 	public void drawPellet() {
-		print("Pellet");
+		System.out.print("Pellet");
 	}
 	public void drawPoint() {
-		print("Point");
+		System.out.print("Point");
 	}
 	public void drawGhost() {
-		print("Ghost");
+		System.out.print("Ghost");
 	}
 	public void drawPacMan() {
-		print("PacMan");
+		System.out.print("PacMan");
 	}
 	
 	//draws the world
@@ -72,9 +72,9 @@ public class World extends GraphicsEngine{
 					drawPacMan();
 				}else{
 					System.out.print("empty");
-				}System.out.print(" ");
-			}
-		}System.out.println();
+				}System.out.print("\t");
+			}System.out.println();
+		}
 	}
 	
 	//gets rid of objects; for example when pacman eats the pellet, it has to disappear
