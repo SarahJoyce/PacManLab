@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+import javax.swing.*;
 
 public class World extends GraphicsEngine{
 
@@ -8,7 +10,7 @@ public class World extends GraphicsEngine{
 	Ghost g2 = new Ghost();
 	Ghost g3 = new Ghost();
 	Ghost g4 = new Ghost();
-	Object[][] walls;
+	Object[][] board;
 	enum gameThings {EMPTY, WALL, POINT, PELLET, GHOST, PACMAN;}
 	
 	
@@ -18,7 +20,7 @@ public class World extends GraphicsEngine{
 		g2 = g2;
 		g3 = g3;
 		g4 = g4;
-		walls = new Object[][] {
+		board = new Object[][] {
 			{gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL},
 			{gameThings.WALL, gameThings.PELLET, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.POINT, gameThings.PELLET, gameThings.WALL},
 			{gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.POINT, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.WALL, gameThings.POINT, gameThings.WALL},
@@ -38,8 +40,42 @@ public class World extends GraphicsEngine{
 		
 	}
 	
+	public void drawWall() {
+		print("Wall");
+	}
+	public void drawPellet() {
+		print("Pellet");
+	}
+	public void drawPoint() {
+		print("Point");
+	}
+	public void drawGhost() {
+		print("Ghost");
+	}
+	public void drawPacMan() {
+		print("PacMan");
+	}
+	
 	//draws the world
-	public void draw() {}
+	public void draw() {
+		for (int i=0; i<board.length; i++) {
+			for(int j=0; j<board[0].length; j++) {
+				if(board[i][j]==gameThings.WALL) {
+					drawWall();
+				}else if(board[i][j]==gameThings.PELLET) {
+					drawPellet();	
+				}else if(board[i][j]==gameThings.POINT) {
+					drawPoint();
+				}else if(board[i][j]==gameThings.GHOST) {
+					drawGhost();
+				}else if(board[i][j]==gameThings.PACMAN) {
+					drawPacMan();
+				}else{
+					System.out.print("empty");
+				}System.out.print(" ");
+			}
+		}System.out.println();
+	}
 	
 	//gets rid of objects; for example when pacman eats the pellet, it has to disappear
 	public void delete() {}

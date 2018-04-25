@@ -11,8 +11,6 @@ public class PacManGame {
 	
 		World game = new World(player, Inky, Blinky, Pinky, Clyde);
 		game.draw();
-		
-		System.out.println("I ran");
 	}
 		
 }

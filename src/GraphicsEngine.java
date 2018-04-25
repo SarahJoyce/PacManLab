@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+import javax.swing.*;
 
 public class GraphicsEngine implements IEverythingGraphics{
 
