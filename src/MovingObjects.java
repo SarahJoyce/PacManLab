@@ -1,11 +1,11 @@
 
 public abstract class MovingObjects extends GameObject {
 	
-	int direction;
+	boolean isMoving;
 	
-	protected MovingObjects(int currentX, int currentY, int direction) {
+	protected MovingObjects(int currentX, int currentY, boolean isMoving) {
 		super(currentX, currentY);
-		this.direction = direction;
+		this.isMoving = isMoving;
 	}
 	
 	protected boolean isCollided;

@@ -2,14 +2,18 @@
 public class PacMan extends MovingObjects{
 	
 	int points;
+	int xpos;
+	int ypos;
 	
 	public PacMan() {
-		super(0,0,0);
+		super(0,0,false);
 		points = 0;
 	}
 	
-	public PacMan(int xpos, int ypos, int dir, int p) {
-		super(xpos, ypos, dir);
+	public PacMan(int xpos, int ypos, boolean isMoving, int p) {
+		super(xpos, ypos, isMoving);
+		this.xpos = xpos;
+		this.ypos = ypos;
 		points = p;
 	}
 	
