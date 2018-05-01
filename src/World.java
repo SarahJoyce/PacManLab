@@ -1,10 +1,14 @@
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+
 import javax.swing.*;
 
-public class World extends GraphicsEngine{
+import javafx.scene.shape.Circle;
 
-	//need to add positions for blocked off walls
+public class World extends GraphicsEngine{
 	
+	Graphics g;
 	PacMan man = new PacMan();
 	Ghost g1 = new Ghost();
 	Ghost g2 = new Ghost();
@@ -40,39 +44,48 @@ public class World extends GraphicsEngine{
 		
 	}
 	
-	public void drawWall() {
-		System.out.print("Wall");
+	public void drawWall(int x, int y) {
+		g.setColor(Color.BLUE);
+		g.fillRect(x,y,15,15);
 	}
-	public void drawPellet() {
-		System.out.print("Pellet");
+	public void drawPellet(int x, int y) {
+		g.setColor(Color.YELLOW);
+		g.fillOval(x, y, 12, 12);
 	}
-	public void drawPoint() {
-		System.out.print("Point");
+	public void drawPoint(int x, int y) {
+		g.setColor(Color.YELLOW);
+		g.fillOval(x, y, 7, 7);
 	}
-	public void drawGhost() {
-		System.out.print("Ghost");
+	public void drawGhost(int x, int y) {
+		g.setColor(Color.PINK);
+		g.fillRect(x,y,13,13);
 	}
-	public void drawPacMan() {
-		System.out.print("PacMan");
+	public void drawPacMan(int x, int y) {
+		g.setColor(Color.YELLOW);
+		g.fillOval(x,y,13,13);
+	}
+	public void drawEmptySquare(int x, int y) {
+		g.setColor(Color.BLACK);
+		g.fillRect(x,y,15,15);
 	}
 	
 	//draws the world
-	public void draw() {
+	public void draw(Graphics g) {
 		for (int i=0; i<board.length; i++) {
 			for(int j=0; j<board[0].length; j++) {
 				if(board[i][j]==gameThings.WALL) {
-					drawWall();
+					drawWall((i*15),(j*15));
 				}else if(board[i][j]==gameThings.PELLET) {
-					drawPellet();	
+					drawPellet((i*7),(j*7));
 				}else if(board[i][j]==gameThings.POINT) {
-					drawPoint();
+					drawPoint((i*7),(j*7));
 				}else if(board[i][j]==gameThings.GHOST) {
-					drawGhost();
+					drawGhost((i*15),(j*15));
 				}else if(board[i][j]==gameThings.PACMAN) {
-					drawPacMan();
+					drawPacMan((i*7),(j*7));
 				}else{
-					System.out.print("empty");
-				}System.out.print("\t");
+					drawEmptySquare((i*15),(j*15));
+				}
 			}System.out.println();
 		}
 	}
