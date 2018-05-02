@@ -1,12 +1,18 @@
 
 public class PacMan extends MovingObjects{
 	
+	final int initialX;
+	final int initialY;
+	
 	int points;
 	int xpos;
 	int ypos;
+	int numLives = 4;
 	
 	public PacMan() {
 		super(0,0,false);
+		initialX = 0;
+		initialY = 0;
 		points = 0;
 	}
 	
@@ -14,10 +20,21 @@ public class PacMan extends MovingObjects{
 		super(xpos, ypos, isMoving);
 		this.xpos = xpos;
 		this.ypos = ypos;
+		initialX = xpos;
+		initialY = ypos;
 		points = p;
 	}
 	
 	//make the food disappear and add points to the score
 	public void eat() {}
+	
+	@Override
+	
+	//when pacman gets hit by ghost test if lives is greater than 0 is so call die if not end game
+	public void die() {
+		xpos = initialX;
+		ypos = initialY;
+		numLives--;
+	}
 
 }
