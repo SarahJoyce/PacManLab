@@ -1,20 +1,27 @@
 import java.time.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PowerPellet extends GameObject{
 	
 	//The ghosts eaten are worth in order 200, 400, 800, 1600
 	
-	int time = 0; //in seconds
-	boolean ppState = false; //the world is initially not in a power pellet state
+	int seconds = 15;
+	boolean ppState = true;
+	Timer timer;
 	
-	public PowerPellet(int xpos, int ypos) {
+	public PowerPellet(int xpos, int ypos, int seconds) {
 		super(xpos, ypos);
+		this.seconds = seconds;
+		timer = new Timer();
+		timer.schedule(new PowerPelletWorld(), seconds);
 	}
-
-	//sets time = 15 seconds and decreases the time second by second when ppState = true;
-	//when time = 0; ppState returns to false
-	public int decreaseTime(int time, boolean ppState) {
-		return 0;
-	}
+	
+	class PowerPelletWorld extends TimerTask {
+        public void run() {
+            ppState = false;
+            timer.cancel(); //Terminate the timer thread
+        }
+    }
 	
 }

@@ -26,7 +26,10 @@ public class PacMan extends MovingObjects{
 	}
 	
 	//make the food disappear and add points to the score
-	public void eat() {}
+	public void eat() {
+		points++;
+		//World.gameThings.EMPTY
+	}
 	
 	@Override
 	

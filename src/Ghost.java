@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Ghost extends MovingObjects{
 	
@@ -27,7 +28,9 @@ public class Ghost extends MovingObjects{
 	
 	//function to determine the ghosts' random movement
 	public int nextPosn(int currentX, int currentY) {
-		return 0;
+		Random dir = new Random();
+		int direction = 1 + dir.nextInt(4);
+		return direction;
 	}
 	
 	@Override

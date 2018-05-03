@@ -44,7 +44,7 @@ public class World extends GraphicsEngine{
 		
 	}
 	
-	public void drawWall(int x, int y) {
+	/*public void drawWall(int x, int y) {
 		g.setColor(Color.BLUE);
 		g.fillRect(x,y,15,15);
 	}
@@ -87,6 +87,13 @@ public class World extends GraphicsEngine{
 					drawEmptySquare((i*15),(j*15));
 				}
 			}System.out.println();
+		}
+	}*/
+	
+	//I know this one is not 100% right but it's a start
+	public void pacmanEats() {
+		if(board[man.xpos][man.ypos]==gameThings.POINT || board[man.xpos][man.ypos]==gameThings.PELLET) {
+			board[man.xpos][man.ypos]=gameThings.EMPTY;
 		}
 	}
 	
