@@ -17,7 +17,7 @@ public abstract class MovingObjects extends GameObject {
 	protected void moveRight() {currentX++;}
 	protected void moveLeft() {currentX--;}
 	protected void moveDown() {currentY--;}
-	protected void moreUp() {currentY++;}
+	protected void moveUp() {currentY++;}
 	protected void die() {} //test number of lives if more than 1 reset PacMan and ghosts to start but leave
 							//pellets and points and fruit
 	
