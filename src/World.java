@@ -128,8 +128,8 @@ public class World extends GraphicsEngine{
 	
 	//I know this one is not 100% right but it's a start
 	public void pacmanEats() {
-		if(board[man.xpos][man.ypos]==gameThings.POINT || board[man.xpos][man.ypos]==gameThings.PELLET) {
-			board[man.xpos][man.ypos]=gameThings.EMPTY;
+		if(board[man.xpos][man.ypos].objectType == GameObject.ObjectType.POINT || board[man.xpos][man.ypos].objectType == GameObject.ObjectType.PELLET) {
+			board[man.xpos][man.ypos].objectType = GameObject.ObjectType.EMPTY;
 		}
 	}
 	

@@ -1,4 +1,3 @@
-import java.util.Random;
 
 public class Ghost extends MovingObjects{
 	
@@ -10,27 +9,41 @@ public class Ghost extends MovingObjects{
 	
 	boolean ghostState;
 	
+	GameObject.ObjectType oldType;
+	
 	public Ghost() {
 		super(0,0,false);
 		initialX = 0;
 		initialY = 0;
 		ghostState = false;
+		oldType = GameObject.ObjectType.EMPTY;
 	}
 	
-	public Ghost(int xpos, int ypos, boolean isMoving, boolean state) {
+	public Ghost(int xpos, int ypos, boolean isMoving, boolean state, GameObject.ObjectType oldType) {
 		super(xpos, ypos, isMoving);
 		initialX = xpos;
 		initialY = ypos;
 		this.xpos = xpos;
 		this.ypos = ypos;
 		ghostState = state;
+		this.oldType = oldType;
 	}
 	
 	//function to determine the ghosts' random movement
-	public int nextPosn(int currentX, int currentY) {
-		Random dir = new Random();
-		int direction = 1 + dir.nextInt(4);
-		return direction;
+	public void nextPosn(int direc) {
+
+		if (direc == 1) {
+			moveRight();
+		}
+		else if (direc == 2) {
+			moveDown();
+		}
+		else if (direc == 3) {
+			moveLeft();
+		}
+		else {
+			moveUp();
+		}
 	}
 	
 	@Override
