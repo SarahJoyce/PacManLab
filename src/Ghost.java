@@ -32,13 +32,13 @@ public class Ghost extends MovingObjects{
 	//function to determine the ghosts' random movement
 	public void nextPosn(int direc) {
 
-		if (direc == 1) {
+		if (direc == 0) {
 			moveRight();
 		}
-		else if (direc == 2) {
+		else if (direc == 1) {
 			moveDown();
 		}
-		else if (direc == 3) {
+		else if (direc == 2) {
 			moveLeft();
 		}
 		else {

@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,6 +24,22 @@ public class PacManGame extends JFrame{
 		Ghost Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
 		
 		game = new World();
+		
+		Random rand = new Random();
+		int inkyDirec;
+		int blinkyDirec;
+		int pinkyDirec;
+		int clydeDirec;
+		
+		//Do this every time there's a keystroke
+		inkyDirec = rand.nextInt(4);
+		Inky.nextPosn(inkyDirec);
+		blinkyDirec = rand.nextInt(4);
+		Blinky.nextPosn(blinkyDirec);
+		pinkyDirec = rand.nextInt(4);
+		Pinky.nextPosn(pinkyDirec);
+		clydeDirec = rand.nextInt(4);
+		Clyde.nextPosn(clydeDirec);
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
