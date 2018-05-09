@@ -9,75 +9,66 @@ import javafx.scene.shape.Circle;
 public class World extends GraphicsEngine{
 	
 	Graphics g;
-	PacMan man = new PacMan();
-	Ghost g1 = new Ghost();
-	Ghost g2 = new Ghost();
-	Ghost g3 = new Ghost();
-	Ghost g4 = new Ghost();
-	GameObject[][] board;
+	GameObject.ObjectType[][] board;
 	
 	
 	
-	public World(PacMan man, Ghost g1, Ghost g2, Ghost g3, Ghost g4) {
-		man = man;
-		g1 = g1;
-		g2 = g2;
-		g3 = g3;
-		g4 = g4;
-		board = new GameObject[15][15];
+	public World() {
+		board = new GameObject.ObjectType[15][15];
+		
 		for (int i = 0; i < 14; i++ ) {
-			board[0][i].objectType = GameObject.ObjectType.WALL;
-			board[14][i + 1].objectType = GameObject.ObjectType.WALL;
-			board[i + 1][0].objectType = GameObject.ObjectType.WALL;
-			board[i][14].objectType = GameObject.ObjectType.WALL;
+			board[0][i] = GameObject.ObjectType.WALL;
+			board[14][i + 1] = GameObject.ObjectType.WALL;
+			board[i + 1][0] = GameObject.ObjectType.WALL;
+			board[i][14] = GameObject.ObjectType.WALL;
 		}
 		for (int i = 0; i < 11; i++) {
-			board[1][i + 2].objectType = GameObject.ObjectType.POINT;
-			board[i + 2][13].objectType = GameObject.ObjectType.POINT;
-			board[i + 2][1].objectType = GameObject.ObjectType.POINT;
-			board[13][i + 2].objectType = GameObject.ObjectType.POINT;
+			board[1][i + 2] = GameObject.ObjectType.POINT;
+			board[i + 2][13] = GameObject.ObjectType.POINT;
+			board[i + 2][1] = GameObject.ObjectType.POINT;
+			board[13][i + 2] = GameObject.ObjectType.POINT;
 		}
 		for (int i = 0; i < 5; i++) {
-			board[i + 2][3].objectType = GameObject.ObjectType.POINT;
-			board[i + 2][6].objectType = GameObject.ObjectType.POINT;
-			board[8][i + 2].objectType = GameObject.ObjectType.WALL;
-			board[i + 2][4].objectType = GameObject.ObjectType.WALL;
-			board[i + 2][5].objectType = GameObject.ObjectType.WALL;
-			board[i + 7][7].objectType = GameObject.ObjectType.WALL;
-			board[12][i + 7].objectType = GameObject.ObjectType.WALL;
-			board[5][i + 8].objectType = GameObject.ObjectType.WALL;
+			board[i + 2][3] = GameObject.ObjectType.POINT;
+			board[i + 2][6] = GameObject.ObjectType.POINT;
+			board[8][i + 2] = GameObject.ObjectType.WALL;
+			board[i + 2][4] = GameObject.ObjectType.WALL;
+			board[i + 2][5] = GameObject.ObjectType.WALL;
+			board[i + 7][7] = GameObject.ObjectType.WALL;
+			board[12][i + 7] = GameObject.ObjectType.WALL;
+			board[5][i + 8] = GameObject.ObjectType.WALL;
 		}
 		for (int i = 0; i < 4; i++) {
-			board[7][i + 3].objectType = GameObject.ObjectType.POINT;
-			board[9][i + 2].objectType = GameObject.ObjectType.POINT;
-			board[6][i + 8].objectType = GameObject.ObjectType.POINT;
-			board[11][i + 8].objectType = GameObject.ObjectType.POINT;
-			board[i + 7][8].objectType = GameObject.ObjectType.POINT;
-			board[i + 7][11].objectType = GameObject.ObjectType.POINT;
-			board[4][i + 9].objectType = GameObject.ObjectType.POINT;
-			board[i + 2][7].objectType = GameObject.ObjectType.WALL;
-			board[2][i + 9].objectType = GameObject.ObjectType.WALL;
-			board[3][i + 9].objectType = GameObject.ObjectType.WALL;
-			board[i + 7][9].objectType = GameObject.ObjectType.WALL;
-			board[i + 7][10].objectType = GameObject.ObjectType.WALL;
-			board[i + 6][12].objectType = GameObject.ObjectType.WALL;
-			board[10][i + 2].objectType = GameObject.ObjectType.WALL;
-			board[12][i + 2].objectType = GameObject.ObjectType.WALL;
-			board[11][i + 2].objectType = GameObject.ObjectType.GHOST;
+			board[7][i + 3] = GameObject.ObjectType.POINT;
+			board[9][i + 2] = GameObject.ObjectType.POINT;
+			board[6][i + 8] = GameObject.ObjectType.POINT;
+			board[11][i + 8] = GameObject.ObjectType.POINT;
+			board[i + 7][8] = GameObject.ObjectType.POINT;
+			board[i + 7][11] = GameObject.ObjectType.POINT;
+			board[4][i + 9] = GameObject.ObjectType.POINT;
+			board[i + 2][7] = GameObject.ObjectType.WALL;
+			board[2][i + 9] = GameObject.ObjectType.WALL;
+			board[3][i + 9] = GameObject.ObjectType.WALL;
+			board[i + 7][9] = GameObject.ObjectType.WALL;
+			board[i + 7][10] = GameObject.ObjectType.WALL;
+			board[i + 6][12] = GameObject.ObjectType.WALL;
+			board[10][i + 2] = GameObject.ObjectType.WALL;
+			board[12][i + 2] = GameObject.ObjectType.WALL;
+			board[11][i + 2] = GameObject.ObjectType.GHOST;
 		}
 		for (int i = 0; i < 3; i++) {
-			board[i + 2][8].objectType = GameObject.ObjectType.POINT;
-			board[i + 10][6].objectType = GameObject.ObjectType.POINT;
-			board[i + 10][12].objectType = GameObject.ObjectType.WALL;
-			board[i + 2][2].objectType = GameObject.ObjectType.WALL;
-			board[i + 5][2].objectType = GameObject.ObjectType.WALL;
+			board[i + 2][8] = GameObject.ObjectType.POINT;
+			board[i + 10][6] = GameObject.ObjectType.POINT;
+			board[i + 10][12] = GameObject.ObjectType.WALL;
+			board[i + 2][2] = GameObject.ObjectType.WALL;
+			board[i + 5][2] = GameObject.ObjectType.WALL;
 		}
-		board[13][1].objectType = GameObject.ObjectType.POINT;
-		board[1][1].objectType = GameObject.ObjectType.PELLET;
-		board[1][13].objectType = GameObject.ObjectType.PELLET;
-		board[13][13].objectType = GameObject.ObjectType.PELLET;
-		board[9][6].objectType = GameObject.ObjectType.PELLET;
-		board[6][7].objectType = GameObject.ObjectType.PACMAN;
+		board[13][1] = GameObject.ObjectType.POINT;
+		board[1][1] = GameObject.ObjectType.PELLET;
+		board[1][13] = GameObject.ObjectType.PELLET;
+		board[13][13] = GameObject.ObjectType.PELLET;
+		board[9][6] = GameObject.ObjectType.PELLET;
+		board[6][7] = GameObject.ObjectType.PACMAN;
 	}
 	
 	/*public void drawWall(int x, int y) {
@@ -125,13 +116,6 @@ public class World extends GraphicsEngine{
 			}System.out.println();
 		}
 	}*/
-	
-	//I know this one is not 100% right but it's a start
-	public void pacmanEats() {
-		if(board[man.xpos][man.ypos].objectType == GameObject.ObjectType.POINT || board[man.xpos][man.ypos].objectType == GameObject.ObjectType.PELLET) {
-			board[man.xpos][man.ypos].objectType = GameObject.ObjectType.EMPTY;
-		}
-	}
 	
 	//gets rid of objects; for example when pacman eats the pellet, it has to disappear
 	public void delete() {}

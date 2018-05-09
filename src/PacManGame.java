@@ -21,8 +21,8 @@ public class PacManGame extends JFrame{
 		Ghost Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
 		Ghost Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
 		Ghost Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
-	
-		game = new World(player, Inky, Blinky, Pinky, Clyde);
+		
+		game = new World();
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -77,15 +77,15 @@ public class PacManGame extends JFrame{
 	public void draw(Graphics g) {
 		for (int i=0; i<game.board.length; i++) {
 			for(int j=0; j<game.board[0].length; j++) {
-				if(game.board[i][j].objectType == GameObject.ObjectType.WALL) {
+				if(game.board[i][j] == GameObject.ObjectType.WALL) {
 					drawWall((i*15),(j*15));
-				}else if(game.board[i][j].objectType == GameObject.ObjectType.PELLET) {
+				}else if(game.board[i][j] == GameObject.ObjectType.PELLET) {
 					drawPellet((i*7),(j*7));
-				}else if(game.board[i][j].objectType == GameObject.ObjectType.POINT) {
+				}else if(game.board[i][j] == GameObject.ObjectType.POINT) {
 					drawPoint((i*7),(j*7));
-				}else if(game.board[i][j].objectType == GameObject.ObjectType.GHOST) {
+				}else if(game.board[i][j] == GameObject.ObjectType.GHOST) {
 					drawGhost((i*15),(j*15));
-				}else if(game.board[i][j].objectType == GameObject.ObjectType.PACMAN) {
+				}else if(game.board[i][j] == GameObject.ObjectType.PACMAN) {
 					drawPacMan((i*7),(j*7));
 				}else{
 					drawEmptySquare((i*15),(j*15));
