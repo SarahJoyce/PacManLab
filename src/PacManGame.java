@@ -16,11 +16,11 @@ public class PacManGame extends JFrame{
 	
 	public static void main(String[] args) {
 		
-		PacMan player = new PacMan();
-		Ghost Inky = new Ghost();
-		Ghost Blinky = new Ghost();
-		Ghost Pinky = new Ghost();
-		Ghost Clyde = new Ghost();
+		PacMan player = new PacMan(7, 6, false, 0);
+		Ghost Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY);
+		Ghost Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
+		Ghost Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
+		Ghost Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
 	
 		game = new World(player, Inky, Blinky, Pinky, Clyde);
 		
