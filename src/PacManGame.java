@@ -12,7 +12,6 @@ import javax.swing.border.EmptyBorder;
 public class PacManGame extends JFrame{
 	
 	private JPanel contentPane;
-	Graphics g;
 	static World game;
 	
 	public static void main(String[] args) {
@@ -45,7 +44,7 @@ public class PacManGame extends JFrame{
 			public void run() {
 				try {
 					PacManGame window = new PacManGame() {
-						@Override public void paint(Graphics g) {
+						@Override public void paintComponents(Graphics g) {
 				            game.draw();
 				          }
 					};
@@ -57,7 +56,7 @@ public class PacManGame extends JFrame{
 		});
 		
 	}
-	
+
 	public PacManGame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -69,47 +68,47 @@ public class PacManGame extends JFrame{
 		setContentPane(contentPane);
 	}
 	
-	public void drawWall(int x, int y) {
+	public void drawWall(int x, int y, Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(x,y,15,15);
 	}
-	public void drawPellet(int x, int y) {
+	public void drawPellet(int x, int y, Graphics g) {
 		g.setColor(Color.YELLOW);
 		g.fillOval(x, y, 12, 12);
 	}
-	public void drawPoint(int x, int y) {
+	public void drawPoint(int x, int y, Graphics g) {
 		g.setColor(Color.YELLOW);
 		g.fillOval(x, y, 7, 7);
 	}
-	public void drawGhost(int x, int y) {
+	public void drawGhost(int x, int y, Graphics g) {
 		g.setColor(Color.PINK);
 		g.fillRect(x,y,13,13);
 	}
-	public void drawPacMan(int x, int y) {
+	public void drawPacMan(int x, int y, Graphics g) {
 		g.setColor(Color.YELLOW);
 		g.fillOval(x,y,13,13);
 	}
-	public void drawEmptySquare(int x, int y) {
+	public void drawEmptySquare(int x, int y, Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(x,y,15,15);
 	}
 	
 	//draws the world
-	public void draw() {
+	public void draw(Graphics g) {
 		for (int i=0; i<game.board.length; i++) {
 			for(int j=0; j<game.board[0].length; j++) {
 				if(game.board[i][j] == GameObject.ObjectType.WALL) {
-					drawWall((i*15),(j*15));
+					drawWall((i*15),(j*15),g);
 				}else if(game.board[i][j] == GameObject.ObjectType.PELLET) {
-					drawPellet((i*7),(j*7));
+					drawPellet((i*7),(j*7),g);
 				}else if(game.board[i][j] == GameObject.ObjectType.POINT) {
-					drawPoint((i*7),(j*7));
+					drawPoint((i*7),(j*7),g);
 				}else if(game.board[i][j] == GameObject.ObjectType.GHOST) {
-					drawGhost((i*15),(j*15));
+					drawGhost((i*15),(j*15),g);
 				}else if(game.board[i][j] == GameObject.ObjectType.PACMAN) {
-					drawPacMan((i*7),(j*7));
+					drawPacMan((i*7),(j*7),g);
 				}else{
-					drawEmptySquare((i*15),(j*15));
+					drawEmptySquare((i*15),(j*15),g);
 				}
 			}System.out.println();
 		}
