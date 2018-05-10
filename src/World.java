@@ -71,52 +71,6 @@ public class World extends GraphicsEngine{
 		board[6][7] = GameObject.ObjectType.PACMAN;
 	}
 	
-	/*public void drawWall(int x, int y) {
-		g.setColor(Color.BLUE);
-		g.fillRect(x,y,15,15);
-	}
-	public void drawPellet(int x, int y) {
-		g.setColor(Color.YELLOW);
-		g.fillOval(x, y, 12, 12);
-	}
-	public void drawPoint(int x, int y) {
-		g.setColor(Color.YELLOW);
-		g.fillOval(x, y, 7, 7);
-	}
-	public void drawGhost(int x, int y) {
-		g.setColor(Color.PINK);
-		g.fillRect(x,y,13,13);
-	}
-	public void drawPacMan(int x, int y) {
-		g.setColor(Color.YELLOW);
-		g.fillOval(x,y,13,13);
-	}
-	public void drawEmptySquare(int x, int y) {
-		g.setColor(Color.BLACK);
-		g.fillRect(x,y,15,15);
-	}
-	
-	//draws the world
-	public void draw(Graphics g) {
-		for (int i=0; i<board.length; i++) {
-			for(int j=0; j<board[0].length; j++) {
-				if(board[i][j].objectType == GameObject.ObjectType.WALL) {
-					drawWall((i*15),(j*15));
-				}else if(board[i][j].objectType == GameObject.ObjectType.PELLET) {
-					drawPellet((i*7),(j*7));
-				}else if(board[i][j].objectType == GameObject.ObjectType.POINT) {
-					drawPoint((i*7),(j*7));
-				}else if(board[i][j].objectType == GameObject.ObjectType.GHOST) {
-					drawGhost((i*15),(j*15));
-				}else if(board[i][j].objectType == GameObject.ObjectType.PACMAN) {
-					drawPacMan((i*7),(j*7));
-				}else{
-					drawEmptySquare((i*15),(j*15));
-				}
-			}System.out.println();
-		}
-	}*/
-	
 	//gets rid of objects; for example when pacman eats the pellet, it has to disappear
 	public void delete() {}
 	

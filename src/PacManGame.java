@@ -44,7 +44,11 @@ public class PacManGame extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PacManGame window = new PacManGame();
+					PacManGame window = new PacManGame() {
+						@Override public void paint(Graphics g) {
+				            game.draw();
+				          }
+					};
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -91,7 +95,7 @@ public class PacManGame extends JFrame{
 	}
 	
 	//draws the world
-	public void draw(Graphics g) {
+	public void draw() {
 		for (int i=0; i<game.board.length; i++) {
 			for(int j=0; j<game.board[0].length; j++) {
 				if(game.board[i][j] == GameObject.ObjectType.WALL) {
