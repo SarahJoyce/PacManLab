@@ -6,18 +6,6 @@ public class GraphicsEngine implements IEverythingGraphics {
 	// draws the world
 	@Override
 	public void draw(Graphics g, World game) {
-		/*
-		 * for (int i = 0; i < game.board.length; i++) { for (int j = 0; j <
-		 * game.board[0].length; j++) { if (game.board[i][j] ==
-		 * GameObject.ObjectType.WALL) { drawWall((i * 15), (j * 15), g); } else if
-		 * (game.board[i][j] == GameObject.ObjectType.PELLET) { drawPellet((i * 15), (j
-		 * * 15), g); } else if (game.board[i][j] == GameObject.ObjectType.POINT) {
-		 * drawPoint((i * 15), (j * 15), g); } else if (game.board[i][j] ==
-		 * GameObject.ObjectType.GHOST) { drawGhost((i * 15), (j * 15), g); } else if
-		 * (game.board[i][j] == GameObject.ObjectType.PACMAN) { drawPacMan((i * 15), (j
-		 * * 15), g); } else { drawEmptySquare((i * 15), (j * 15), g); } }
-		 * System.out.println(); }
-		 */
 		for (int i = 0; i < game.board2.size(); i++) {
 			GameObject obj = game.board2.get(i);
 			if (obj.objectType == GameObject.ObjectType.WALL) {
