@@ -22,45 +22,52 @@ public class World {
 			Add(GameObject.ObjectType.POINT, 13, i + 2);
 		}
 		for (int i = 0; i < 5; i++) {
-			Add(GameObject.ObjectType.POINT, i + 2, 3);
-			Add(GameObject.ObjectType.POINT, i + 2, 6);
-			Add(GameObject.ObjectType.WALL, 8, i + 2);
-			Add(GameObject.ObjectType.WALL, i + 2, 4);
-			Add(GameObject.ObjectType.WALL, i + 2, 5);
-			Add(GameObject.ObjectType.WALL, i + 2, 7);
-			Add(GameObject.ObjectType.WALL, 12, i + 7);
-			Add(GameObject.ObjectType.WALL, 5, i + 8);
+			Add(GameObject.ObjectType.POINT, 3, i + 2);
+			Add(GameObject.ObjectType.POINT, 6, i + 2);
+			Add(GameObject.ObjectType.WALL, i + 2, 8);
+			Add(GameObject.ObjectType.WALL, 4, i + 2);
+			Add(GameObject.ObjectType.WALL, 5, i + 2);
+			Add(GameObject.ObjectType.WALL, 7, i + 2);
+			Add(GameObject.ObjectType.WALL, i + 7, 12);
+			Add(GameObject.ObjectType.WALL, i + 8, 5);
+			Add(GameObject.ObjectType.WALL, 7, i + 8);
 		}
 		for (int i = 0; i < 4; i++) {
-			Add(GameObject.ObjectType.POINT, 7, i + 3);
-			Add(GameObject.ObjectType.POINT, 9, i + 2);
-			Add(GameObject.ObjectType.POINT, 6, i + 8);
-			Add(GameObject.ObjectType.POINT, 11, i + 8);
-			Add(GameObject.ObjectType.POINT, i + 7, 8);
-			Add(GameObject.ObjectType.POINT, i + 7, 11);
-			Add(GameObject.ObjectType.POINT, 4, i + 9);
-			Add(GameObject.ObjectType.WALL, i + 2, 7);
-			Add(GameObject.ObjectType.WALL, 2, i + 9);
-			Add(GameObject.ObjectType.WALL, 3, i + 9);
-			Add(GameObject.ObjectType.WALL, i + 7, 9);
-			Add(GameObject.ObjectType.WALL, i + 7, 10);
-			Add(GameObject.ObjectType.WALL, i + 6, 12);
-			Add(GameObject.ObjectType.WALL, 10, i + 2);
-			Add(GameObject.ObjectType.WALL, 12, i + 2);
-			Add(GameObject.ObjectType.GHOST, 11, i + 2);
+			Add(GameObject.ObjectType.POINT, i + 3, 7);
+			Add(GameObject.ObjectType.POINT, i + 2, 9);
+			Add(GameObject.ObjectType.POINT, i + 8, 6);
+			Add(GameObject.ObjectType.POINT, i + 8, 11);
+			Add(GameObject.ObjectType.POINT, 8, i + 7);
+			Add(GameObject.ObjectType.POINT, 11, i + 7);
+			Add(GameObject.ObjectType.POINT, i + 9, 4);
+			Add(GameObject.ObjectType.WALL, 7, i + 2);
+			Add(GameObject.ObjectType.WALL, i + 9, 2);
+			Add(GameObject.ObjectType.WALL, i + 9, 3);
+			Add(GameObject.ObjectType.WALL, 9, i + 7);
+			Add(GameObject.ObjectType.WALL, 10, i + 7);
+			Add(GameObject.ObjectType.WALL, 12, i + 6);
+			Add(GameObject.ObjectType.WALL, i + 2, 10);
+			Add(GameObject.ObjectType.WALL, i + 2, 12);
+			Add(GameObject.ObjectType.GHOST, i + 2, 11);
 		}
 		for (int i = 0; i < 3; i++) {
-			Add(GameObject.ObjectType.POINT, i + 2, 8);
-			Add(GameObject.ObjectType.POINT, i + 10, 6);
-			Add(GameObject.ObjectType.WALL, i + 10, 12);
-			Add(GameObject.ObjectType.WALL, i + 2, 2);
-			Add(GameObject.ObjectType.WALL, i + 5, 2);
+			//Add(GameObject.ObjectType.POINT, i + 2, 8);
+			Add(GameObject.ObjectType.POINT, 8, i + 2);
+			//Add(GameObject.ObjectType.POINT, i + 10, 6);
+			Add(GameObject.ObjectType.POINT, 6, i + 10);
+			//Add(GameObject.ObjectType.WALL, i + 10, 12);
+			Add(GameObject.ObjectType.WALL, 12, i + 10);
+			//Add(GameObject.ObjectType.WALL, i + 2, 2);
+			Add(GameObject.ObjectType.WALL, 2, i + 2);
+			//Add(GameObject.ObjectType.WALL, i + 5, 2);
+			Add(GameObject.ObjectType.WALL, 2, i + 5);
 		}
 		Add(GameObject.ObjectType.POINT, 13, 1);
 		Add(GameObject.ObjectType.PELLET, 1, 1);
 		Add(GameObject.ObjectType.PELLET, 1, 13);
 		Add(GameObject.ObjectType.PELLET, 13, 13);
-		Add(GameObject.ObjectType.PELLET, 9, 6);
+		//Add(GameObject.ObjectType.PELLET, 9, 6);
+		Add(GameObject.ObjectType.POINT, 6, 9);
 		Add(GameObject.ObjectType.PACMAN, 7, 7);
 	}
 
