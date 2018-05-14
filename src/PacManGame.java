@@ -22,7 +22,7 @@ public class PacManGame extends JPanel /*implements KeyListener*/{
 	
 	@Override
 	public Dimension getPreferredSize() {
-		return new Dimension(225,225);
+		return new Dimension(450,450);
 	}
 
 	public void paintComponent(Graphics g) {

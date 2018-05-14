@@ -27,41 +27,49 @@ public class GraphicsEngine implements IEverythingGraphics {
 	private void drawWall(Wall wall, Graphics g) {
 		java.awt.Point pt = getCoords(wall);
 		g.setColor(Color.BLUE);
-		g.fillRect(pt.x, pt.y, 15, 15);
+		g.fillRect(pt.x, pt.y, 30, 30);
 	}
 
 	private void drawPellet(Pellet pellet, Graphics g) {
 		java.awt.Point pt = getCoords(pellet);
+		g.setColor(Color.BLACK);
+		g.fillRect(pt.x, pt.y, 30, 30);
 		g.setColor(Color.YELLOW);
-		g.fillOval(pt.x, pt.y, 12, 12);
+		g.fillOval(pt.x, pt.y, 24, 24);
 	}
 
 	private void drawPoint(Point point, Graphics g) {
 		java.awt.Point pt = getCoords(point);
+		g.setColor(Color.BLACK);
+		g.fillRect(pt.x, pt.y, 30, 30);
 		g.setColor(Color.YELLOW);
-		g.fillOval(pt.x, pt.y, 7, 7);
+		g.fillOval(pt.x, pt.y, 14, 14);
 	}
 
 	private void drawGhost(Ghost ghost, Graphics g) {
 		java.awt.Point pt = getCoords(ghost);
+		g.setColor(Color.BLACK);
+		g.fillRect(pt.x, pt.y, 30, 30);
 		g.setColor(Color.PINK);
-		g.fillRect(pt.x, pt.y, 13, 13);
+		g.fillRect(pt.x, pt.y, 26, 26);
 	}
 
 	private void drawPacMan(PacMan pacman, Graphics g) {
 		java.awt.Point pt = getCoords(pacman);
+		g.setColor(Color.BLACK);
+		g.fillRect(pt.x, pt.y, 30, 30);
 		g.setColor(Color.YELLOW);
-		g.fillOval(pt.x, pt.y, 13, 13);
+		g.fillOval(pt.x, pt.y, 26, 26);
 	}
 
 	private void drawEmptySquare(EmptyGameObject empty, Graphics g) {
 		java.awt.Point pt = getCoords(empty);
 		g.setColor(Color.BLACK);
-		g.fillRect(pt.x, pt.y, 15, 15);
+		g.fillRect(pt.x, pt.y, 30, 30);
 	}
 
 	private java.awt.Point getCoords(GameObject obj) {
-		int scale = 15;
+		int scale = 30;
 		return new java.awt.Point(obj.xposition * scale, obj.yposition * scale);
 	}
 }
