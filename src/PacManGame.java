@@ -1,23 +1,37 @@
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Graphics;
-<<<<<<< HEAD
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
-=======
->>>>>>> 500522f1ed2072bb6f8fdeee5a3c4d7086fad5ce
 import javax.swing.JPanel;
-//primary game logic goes here
-public class PacManGame extends JPanel {
-	private static final long serialVersionUID = 1L;
 
-<<<<<<< HEAD
-public class PacManGame extends JFrame implements KeyListener{
+//primary game logic goes here
+public class PacManGame extends JFrame /*implements KeyListener*/{
+	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane;
-	static World game;
+	
+	IEverythingGraphics graphicsEngine;
+	World game;
+
+	public PacManGame() {
+		this.graphicsEngine = graphicsEngine;
+		this.game = new World();
+	}
+	
+	@Override
+	public Dimension getPreferredSize() {
+		return new Dimension(225,225);
+	}
+
+	/*@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		graphicsEngine.draw(g, game);
+	}*/
 	
 	public static void main(String[] args) {
 		
@@ -26,8 +40,6 @@ public class PacManGame extends JFrame implements KeyListener{
 		Ghost Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
 		Ghost Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
 		Ghost Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
-		
-		game = new World();
 		
 		Random rand = new Random();
 		int inkyDirec;
@@ -50,7 +62,8 @@ public class PacManGame extends JFrame implements KeyListener{
 				try {
 					PacManGame window = new PacManGame() {
 						@Override public void paintComponents(Graphics g) {
-				            game.draw();
+							super.paintComponents(g);
+							graphicsEngine.draw(g, game);
 				          }
 					};
 					window.setVisible(true);
@@ -61,27 +74,6 @@ public class PacManGame extends JFrame implements KeyListener{
 		});
 		
 	}
-=======
-	IEverythingGraphics graphicsEngine;
-	World game;
->>>>>>> 500522f1ed2072bb6f8fdeee5a3c4d7086fad5ce
-
-	public PacManGame(IEverythingGraphics graphicsEngine) {
-		this.graphicsEngine = graphicsEngine;
-		this.game = new World();
-	}
-
-	@Override
-	public Dimension getPreferredSize() {
-		return new Dimension(225,225);
-	}
-
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		graphicsEngine.draw(g, game);
-	}
-<<<<<<< HEAD
 	
 	/*@Override
     public void keyPressed(KeyEvent e) {
@@ -99,6 +91,4 @@ public class PacManGame extends JFrame implements KeyListener{
       }
     }*/
 	
-=======
->>>>>>> 500522f1ed2072bb6f8fdeee5a3c4d7086fad5ce
 }
