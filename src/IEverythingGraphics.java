@@ -1,7 +1,6 @@
+import java.awt.Graphics;
 
 public interface IEverythingGraphics {
 	
-	public void draw();
-	public void delete();
-
+	public void draw(Graphics g, World game);
 }

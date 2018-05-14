@@ -1,16 +1,19 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
+import java.awt.Dimension;
 import java.awt.Graphics;
+<<<<<<< HEAD
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
+=======
+>>>>>>> 500522f1ed2072bb6f8fdeee5a3c4d7086fad5ce
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+//primary game logic goes here
+public class PacManGame extends JPanel {
+	private static final long serialVersionUID = 1L;
 
+<<<<<<< HEAD
 public class PacManGame extends JFrame implements KeyListener{
 	
 	private JPanel contentPane;
@@ -58,63 +61,27 @@ public class PacManGame extends JFrame implements KeyListener{
 		});
 		
 	}
+=======
+	IEverythingGraphics graphicsEngine;
+	World game;
+>>>>>>> 500522f1ed2072bb6f8fdeee5a3c4d7086fad5ce
 
-	public PacManGame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		FlowLayout flow = new FlowLayout();
-		contentPane.setLayout(flow);
-		setContentPane(contentPane);
+	public PacManGame(IEverythingGraphics graphicsEngine) {
+		this.graphicsEngine = graphicsEngine;
+		this.game = new World();
 	}
-	
-	public void drawWall(int x, int y, Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect(x,y,15,15);
+
+	@Override
+	public Dimension getPreferredSize() {
+		return new Dimension(225,225);
 	}
-	public void drawPellet(int x, int y, Graphics g) {
-		g.setColor(Color.YELLOW);
-		g.fillOval(x, y, 12, 12);
+
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		graphicsEngine.draw(g, game);
 	}
-	public void drawPoint(int x, int y, Graphics g) {
-		g.setColor(Color.YELLOW);
-		g.fillOval(x, y, 7, 7);
-	}
-	public void drawGhost(int x, int y, Graphics g) {
-		g.setColor(Color.PINK);
-		g.fillRect(x,y,13,13);
-	}
-	public void drawPacMan(int x, int y, Graphics g) {
-		g.setColor(Color.YELLOW);
-		g.fillOval(x,y,13,13);
-	}
-	public void drawEmptySquare(int x, int y, Graphics g) {
-		g.setColor(Color.BLACK);
-		g.fillRect(x,y,15,15);
-	}
-	
-	//draws the world
-	public void draw(Graphics g) {
-		for (int i=0; i<game.board.length; i++) {
-			for(int j=0; j<game.board[0].length; j++) {
-				if(game.board[i][j] == GameObject.ObjectType.WALL) {
-					drawWall((i*15),(j*15),g);
-				}else if(game.board[i][j] == GameObject.ObjectType.PELLET) {
-					drawPellet((i*7),(j*7),g);
-				}else if(game.board[i][j] == GameObject.ObjectType.POINT) {
-					drawPoint((i*7),(j*7),g);
-				}else if(game.board[i][j] == GameObject.ObjectType.GHOST) {
-					drawGhost((i*15),(j*15),g);
-				}else if(game.board[i][j] == GameObject.ObjectType.PACMAN) {
-					drawPacMan((i*7),(j*7),g);
-				}else{
-					drawEmptySquare((i*15),(j*15),g);
-				}
-			}System.out.println();
-		}
-	}
+<<<<<<< HEAD
 	
 	/*@Override
     public void keyPressed(KeyEvent e) {
@@ -132,4 +99,6 @@ public class PacManGame extends JFrame implements KeyListener{
       }
     }*/
 	
+=======
+>>>>>>> 500522f1ed2072bb6f8fdeee5a3c4d7086fad5ce
 }

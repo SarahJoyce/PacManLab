@@ -12,6 +12,7 @@ public class PowerPellet extends GameObject{
 	
 	public PowerPellet(int xpos, int ypos, int seconds) {
 		super(xpos, ypos);
+		super.objectType = ObjectType.PELLET;
 		this.seconds = seconds;
 		timer = new Timer();
 		timer.schedule(new PowerPelletWorld(), seconds);

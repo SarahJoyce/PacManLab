@@ -1,6 +1,4 @@
-
-public class Ghost extends MovingObjects{
-	
+public class Ghost extends MovingObjects{	
 	private final int initialX;
 	private final int initialY;
 	
@@ -13,6 +11,7 @@ public class Ghost extends MovingObjects{
 	
 	public Ghost() {
 		super(0,0,false);
+		super.objectType = ObjectType.GHOST;
 		initialX = 0;
 		initialY = 0;
 		ghostState = false;
@@ -21,6 +20,7 @@ public class Ghost extends MovingObjects{
 	
 	public Ghost(int xpos, int ypos, boolean isMoving, boolean state, GameObject.ObjectType oldType) {
 		super(xpos, ypos, isMoving);
+		super.objectType = ObjectType.GHOST;
 		initialX = xpos;
 		initialY = ypos;
 		this.xpos = xpos;
@@ -51,5 +51,4 @@ public class Ghost extends MovingObjects{
 		xpos = initialX;
 		ypos = initialY;
 	}
-
 }

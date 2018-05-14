@@ -11,6 +11,7 @@ public class PacMan extends MovingObjects{
 	
 	public PacMan() {
 		super(0,0,false);
+		super.objectType = ObjectType.PACMAN;
 		initialX = 0;
 		initialY = 0;
 		points = 0;
@@ -18,6 +19,7 @@ public class PacMan extends MovingObjects{
 	
 	public PacMan(int xpos, int ypos, boolean isMoving, int p) {
 		super(xpos, ypos, isMoving);
+		super.objectType = ObjectType.PACMAN;
 		this.xpos = xpos;
 		this.ypos = ypos;
 		initialX = xpos;
