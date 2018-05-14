@@ -3,13 +3,15 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class PacManGame extends JFrame{
+public class PacManGame extends JFrame implements KeyListener{
 	
 	private JPanel contentPane;
 	static World game;
@@ -113,5 +115,21 @@ public class PacManGame extends JFrame{
 			}System.out.println();
 		}
 	}
+	
+	/*@Override
+    public void keyPressed(KeyEvent e) {
+      if(e.getKeyCode().equals(LEFT)) {
+   	   	player = new PacMan((x-1),y,false,points);
+      }
+      if(e.getKeyCode().equals(RIGHT)) {
+   	   	player = new PacMan((x+1),y,false,points);
+      }
+      if(e.getKeyCode().equals(UP)) {
+   	   	player = new PacMan(x,(y-1),false,points);
+      }
+      if(e.getKeyCode().equals(DOWN)) {
+   	   	player = new PacMan(x,(y+1),false,points);
+      }
+    }*/
 	
 }
