@@ -1,10 +1,21 @@
 import java.util.ArrayList;
 
-public class World {
+public class World{
 	ArrayList<GameObject> board2;
 
+	PacMan player;
+	Ghost Inky;
+	Ghost Blinky;
+	Ghost Pinky;
+	Ghost Clyde;
+	
 	public World() {
 		initBoardList();
+		player = new PacMan(7, 6, false, 0);
+		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY);
+		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
+		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
+		Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
 	}
 
 	private void initBoardList() {
@@ -99,6 +110,4 @@ public class World {
 	public void delete() {
 	}
 
-	public void update() {
-	}
 }

@@ -1,7 +1,5 @@
 import javax.swing.*;
 
-//Don't change this except for the name of the JFrame
-
 public class Program {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
