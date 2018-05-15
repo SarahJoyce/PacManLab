@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class World{
+public class World {
 	ArrayList<GameObject> board2;
 
 	PacMan player;
@@ -8,7 +8,7 @@ public class World{
 	Ghost Blinky;
 	Ghost Pinky;
 	Ghost Clyde;
-	
+
 	public World() {
 		initBoardList();
 		player = new PacMan(7, 6, false, 0);
@@ -62,22 +62,16 @@ public class World{
 			Add(GameObject.ObjectType.GHOST, i + 2, 11);
 		}
 		for (int i = 0; i < 3; i++) {
-			//Add(GameObject.ObjectType.POINT, i + 2, 8);
 			Add(GameObject.ObjectType.POINT, 8, i + 2);
-			//Add(GameObject.ObjectType.POINT, i + 10, 6);
 			Add(GameObject.ObjectType.POINT, 6, i + 10);
-			//Add(GameObject.ObjectType.WALL, i + 10, 12);
 			Add(GameObject.ObjectType.WALL, 12, i + 10);
-			//Add(GameObject.ObjectType.WALL, i + 2, 2);
 			Add(GameObject.ObjectType.WALL, 2, i + 2);
-			//Add(GameObject.ObjectType.WALL, i + 5, 2);
 			Add(GameObject.ObjectType.WALL, 2, i + 5);
 		}
-		Add(GameObject.ObjectType.POINT, 13, 1);
+		Add(GameObject.ObjectType.PELLET, 13, 1);
 		Add(GameObject.ObjectType.PELLET, 1, 1);
 		Add(GameObject.ObjectType.PELLET, 1, 13);
 		Add(GameObject.ObjectType.PELLET, 13, 13);
-		//Add(GameObject.ObjectType.PELLET, 9, 6);
 		Add(GameObject.ObjectType.POINT, 6, 9);
 		Add(GameObject.ObjectType.PACMAN, 7, 7);
 	}

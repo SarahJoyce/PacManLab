@@ -34,7 +34,7 @@ public class GraphicsEngine implements IEverythingGraphics {
 		java.awt.Point pt = getCoords(pellet);
 		g.setColor(Color.BLACK);
 		g.fillRect(pt.x, pt.y, 30, 30);
-		g.setColor(Color.YELLOW);
+		g.setColor(Color.GREEN);
 		g.fillOval(pt.x, pt.y, 24, 24);
 	}
 
