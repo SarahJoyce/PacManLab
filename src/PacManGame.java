@@ -2,13 +2,14 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 //primary game logic goes here
-public class PacManGame extends JPanel {
+public class PacManGame extends JPanel implements KeyListener {
 
 	IEverythingGraphics graphicsEngine;
 	World game;
@@ -16,6 +17,8 @@ public class PacManGame extends JPanel {
 	public PacManGame(IEverythingGraphics graphicsEngine) {
 		this.graphicsEngine = graphicsEngine;
 		this.game = new World();
+		this.addKeyListener(this);
+		this.setFocusable(true);
 	}
 
 	@Override
@@ -28,20 +31,33 @@ public class PacManGame extends JPanel {
 		graphicsEngine.draw(g, game);
 	}
 
+	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
+		System.out.println(e.getKeyCode());
+		if (e.getKeyCode() == 38) {
 			game.player.moveUp();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		if (e.getKeyCode() == 40) {
 			game.player.moveDown();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		if (e.getKeyCode() == 37) {
 			game.player.moveLeft();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		if (e.getKeyCode() == 39) {
 			game.player.moveRight();
 		}
 		repaint();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		
+		
 	}
 
 }

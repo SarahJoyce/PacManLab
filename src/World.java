@@ -11,11 +11,16 @@ public class World {
 
 	public World() {
 		initBoardList();
-		player = new PacMan(7, 6, false, 0);
+		player = new PacMan(6, 7, false, 0);
 		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY);
 		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
 		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
 		Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
+		board2.add(player);
+		board2.add(Inky);
+		board2.add(Blinky);
+		board2.add(Pinky);
+		board2.add(Clyde);
 	}
 
 	private void initBoardList() {
@@ -59,7 +64,6 @@ public class World {
 			Add(GameObject.ObjectType.WALL, 12, i + 6);
 			Add(GameObject.ObjectType.WALL, i + 2, 10);
 			Add(GameObject.ObjectType.WALL, i + 2, 12);
-			Add(GameObject.ObjectType.GHOST, i + 2, 11);
 		}
 		for (int i = 0; i < 3; i++) {
 			Add(GameObject.ObjectType.POINT, 8, i + 2);
@@ -73,7 +77,7 @@ public class World {
 		Add(GameObject.ObjectType.PELLET, 1, 13);
 		Add(GameObject.ObjectType.PELLET, 13, 13);
 		Add(GameObject.ObjectType.POINT, 6, 9);
-		Add(GameObject.ObjectType.PACMAN, 7, 7);
+		Add(GameObject.ObjectType.EMPTY, 7, 7);
 	}
 
 	private void Add(GameObject.ObjectType type, int x, int y) {
