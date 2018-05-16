@@ -66,7 +66,7 @@ public class GraphicsEngine implements IEverythingGraphics {
 		g.setColor(Color.BLACK);
 		g.fillRect(pt.x, pt.y, 30, 30);
 		g.setColor(Color.YELLOW);
-		g.fillOval(pt.x, pt.y, 26, 26);
+		g.fillArc(pt.x, pt.y, 26, 26, 30, 300);
 	}
 
 	private void drawEmptySquare(EmptyGameObject empty, Graphics g) {
