@@ -140,8 +140,8 @@ public class PacManGame extends JPanel implements KeyListener {
 	private void removePoint() {
 		Dimension myPoint = new Dimension(game.player.xposition, game.player.yposition);
 		if (!game.points.get(myPoint).isEaten) {
+			game.numPoints = game.numPoints + 10;
 			game.points.get(myPoint).isEaten = true;
-			game.numPoints--;
 		}
 	}
 	

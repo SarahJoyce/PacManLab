@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.*;
 
@@ -27,6 +28,7 @@ public class GraphicsEngine implements IEverythingGraphics {
 		drawGhost(game.Inky, g);
 		drawGhost(game.Pinky, g);
 		drawPacMan(game.player, g);
+		drawGameBar(g, game);
 	}
 
 	private void drawWall(Wall wall, Graphics g) {
@@ -71,6 +73,15 @@ public class GraphicsEngine implements IEverythingGraphics {
 		java.awt.Point pt = getCoords(empty);
 		g.setColor(Color.BLACK);
 		g.fillRect(pt.x, pt.y, 30, 30);
+	}
+	
+	private void drawGameBar(Graphics g, World game) {
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("TimesRoman", Font.BOLD, 25)); 
+		//points
+		g.drawString("Points: " + game.numPoints, 15, 450);
+		//lives
+		g.drawString("Lives: " + game.player.numLives, 350, 450);
 	}
 
 	private java.awt.Point getCoords(GameObject obj) {

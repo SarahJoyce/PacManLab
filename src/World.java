@@ -20,7 +20,7 @@ public class World {
 
 	public World() {
 		initBoardList();
-		player = new PacMan(7, 7, false, 0);
+		player = new PacMan(7, 7, false);
 		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY, Color.CYAN);
 		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY, Color.RED);
 		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY, Color.PINK);
@@ -114,7 +114,7 @@ public class World {
 		case GHOST:
 			return new Ghost(x, y, false, false, type, Color.PINK);
 		case PACMAN:
-			return new PacMan(x, y, false, y);
+			return new PacMan(x, y, false);
 		case PELLET:
 			return new Pellet(x, y, false);
 		case POINT:
