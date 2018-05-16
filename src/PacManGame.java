@@ -35,6 +35,22 @@ public class PacManGame extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		game.Inky.nextPosn();
+		if (game.isWall(game.Inky.xposition, game.Inky.yposition)) {
+			game.Inky.prevPosn();
+		}
+		game.Pinky.nextPosn();
+		if (game.isWall(game.Pinky.xposition, game.Pinky.yposition)) {
+			game.Pinky.prevPosn();
+		}
+		game.Blinky.nextPosn();
+		if (game.isWall(game.Blinky.xposition, game.Blinky.yposition)) {
+			game.Blinky.prevPosn();
+		}
+		game.Clyde.nextPosn();
+		if (game.isWall(game.Clyde.xposition, game.Clyde.yposition)) {
+			game.Clyde.prevPosn();
+		}
 		if (e.getKeyCode() == 38) {
 			game.player.moveUp();
 			if (game.isWall(game.player.xposition, game.player.yposition)) {

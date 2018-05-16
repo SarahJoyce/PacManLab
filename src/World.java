@@ -14,7 +14,7 @@ public class World {
 	Pellet p2;
 	Pellet p3;
 	Pellet p4;
-	
+
 	HashMap<Dimension, Wall> walls = new HashMap<Dimension, Wall>();
 
 	public World() {
@@ -80,6 +80,7 @@ public class World {
 			Add(GameObject.ObjectType.WALL, 12, i + 6);
 			Add(GameObject.ObjectType.WALL, i + 2, 10);
 			Add(GameObject.ObjectType.WALL, i + 2, 12);
+			Add(GameObject.ObjectType.EMPTY, i + 2, 11);
 		}
 		for (int i = 0; i < 3; i++) {
 			Add(GameObject.ObjectType.POINT, 8, i + 2);
@@ -116,21 +117,17 @@ public class World {
 			throw new RuntimeException();
 		}
 	}
-	
+
 	public boolean isGhost(int x, int y) {
-		return Pinky.xposition == x && Pinky.yposition == y 
-				|| Inky.xposition == x && Inky.yposition == y
-				|| Blinky.xposition == x && Blinky.yposition == y
-				|| Clyde.xposition == x && Clyde.yposition == y;
+		return Pinky.xposition == x && Pinky.yposition == y || Inky.xposition == x && Inky.yposition == y
+				|| Blinky.xposition == x && Blinky.yposition == y || Clyde.xposition == x && Clyde.yposition == y;
 	}
-	
+
 	public boolean isPellet(int x, int y) {
-		return p1.xposition == x && p1.yposition == y 
-				|| p2.xposition == x && p2.yposition == y
-				|| p3.xposition == x && p3.yposition == y
-				|| p4.xposition == x && p4.yposition == y;
+		return p1.xposition == x && p1.yposition == y || p2.xposition == x && p2.yposition == y
+				|| p3.xposition == x && p3.yposition == y || p4.xposition == x && p4.yposition == y;
 	}
-	
+
 	public boolean isWall(int x, int y) {
 		Dimension myPoint = new Dimension(x, y);
 		return walls.containsKey(myPoint);

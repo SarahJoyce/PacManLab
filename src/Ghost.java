@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.Random;
 
 public class Ghost extends MovingObjects {
 	private final int initialX;
@@ -7,6 +8,9 @@ public class Ghost extends MovingObjects {
 
 	boolean isEdible;
 	Color color;
+	
+	private int prevX;
+	private int prevY;
 
 	GameObject.ObjectType oldType;
 
@@ -32,8 +36,13 @@ public class Ghost extends MovingObjects {
 	}
 
 	// function to determine the ghosts' random movement
-	public void nextPosn(int direc) {
-
+	public void nextPosn() {
+		Random rand = new Random();
+		int direc = rand.nextInt(4);
+		
+		prevX = super.xposition;
+		prevY = super.yposition;
+		
 		if (direc == 0) {
 			moveRight();
 		} else if (direc == 1) {
@@ -43,6 +52,11 @@ public class Ghost extends MovingObjects {
 		} else {
 			moveUp();
 		}
+	}
+	
+	public void prevPosn() {
+		super.xposition = prevX;
+		super.yposition = prevY;
 	}
 
 	@Override
