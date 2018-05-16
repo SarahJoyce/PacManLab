@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.util.Random;
 import java.util.Timer;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -43,15 +44,16 @@ public class PacManGame extends JPanel implements KeyListener {
 		moveGhost(game.Pinky);
 		moveGhost(game.Clyde);
 		movePacMan(e);
+		repaint();
 		if (game.numPoints < 1) {
 			System.out.println("You Win!");
 			this.setVisible(false);
 		}
-		if (game.player.numLives < 0) {
+		if (game.player.numLives < 1) {
 			System.out.println("You Lose.");
 			this.setVisible(false);
 		}
-		repaint();
+		
 	}
 
 	private boolean isArrowKey(KeyEvent e) {

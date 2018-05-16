@@ -5,7 +5,7 @@ public class PacMan extends MovingObjects {
 	final int initialY;
 
 	int points;
-	int numLives = 2;
+	int numLives = 3;
 
 	public PacMan() {
 		super(0, 0, false);
@@ -37,6 +37,7 @@ public class PacMan extends MovingObjects {
 		super.xposition = initialX;
 		super.yposition = initialY;
 		numLives--;
+		System.out.println("You died. " + numLives + " Lives Remaining");
 	}
 
 }
