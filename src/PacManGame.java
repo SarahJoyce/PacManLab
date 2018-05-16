@@ -43,6 +43,12 @@ public class PacManGame extends JPanel implements KeyListener {
 		moveGhost(game.Pinky);
 		moveGhost(game.Clyde);
 		movePacMan(e);
+		if (game.numPoints < 1) {
+			System.out.println("You Win!");
+		}
+		if (game.player.numLives < 0) {
+			System.out.println("You Lose.");
+		}
 		repaint();
 	}
 
@@ -90,6 +96,9 @@ public class PacManGame extends JPanel implements KeyListener {
 			game.Clyde.makeEdible();
 			ghostTimer.schedule(new ghostTimerTask(game), 10000);
 		}
+		if (game.isPoint(game.player.xposition, game.player.yposition)) {
+			removePoint();
+		}
 		if (game.player.xposition != prevX || game.player.yposition != prevY) {
 			game.addEmpty(prevX, prevY);
 		}
@@ -124,6 +133,14 @@ public class PacManGame extends JPanel implements KeyListener {
 		}
 	}
 
+	private void removePoint() {
+		Dimension myPoint = new Dimension(game.player.xposition, game.player.yposition);
+		if (!game.points.get(myPoint).isEaten) {
+			game.points.get(myPoint).isEaten = true;
+			game.numPoints--;
+		}
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 

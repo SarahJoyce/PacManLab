@@ -1,7 +1,11 @@
 
 public class Point extends GameObject {
-	protected Point(int xposition, int yposition) {
+	
+	boolean isEaten;
+	
+	protected Point(int xposition, int yposition, boolean isEaten) {
 		super(xposition, yposition);
+		this.isEaten = isEaten;
 		super.objectType = ObjectType.POINT;
 	}
 }

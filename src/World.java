@@ -4,7 +4,6 @@ import java.util.*;
 
 public class World {
 	ArrayList<GameObject> board2;
-
 	PacMan player;
 	Ghost Inky;
 	Ghost Blinky;
@@ -14,8 +13,10 @@ public class World {
 	Pellet p2;
 	Pellet p3;
 	Pellet p4;
+	int numPoints = 0;
 
 	HashMap<Dimension, Wall> walls = new HashMap<Dimension, Wall>();
+	HashMap<Dimension, Point> points = new HashMap<Dimension, Point>();
 
 	public World() {
 		initBoardList();
@@ -52,10 +53,12 @@ public class World {
 			Add(GameObject.ObjectType.POINT, i + 2, 13);
 			Add(GameObject.ObjectType.POINT, i + 2, 1);
 			Add(GameObject.ObjectType.POINT, 13, i + 2);
+			numPoints += 4;
 		}
 		for (int i = 0; i < 5; i++) {
 			Add(GameObject.ObjectType.POINT, 3, i + 2);
 			Add(GameObject.ObjectType.POINT, 6, i + 2);
+			numPoints += 2;
 			Add(GameObject.ObjectType.WALL, i + 2, 8);
 			Add(GameObject.ObjectType.WALL, 4, i + 2);
 			Add(GameObject.ObjectType.WALL, 5, i + 2);
@@ -72,6 +75,7 @@ public class World {
 			Add(GameObject.ObjectType.POINT, 8, i + 7);
 			Add(GameObject.ObjectType.POINT, 11, i + 7);
 			Add(GameObject.ObjectType.POINT, i + 9, 4);
+			numPoints += 7;
 			Add(GameObject.ObjectType.WALL, 7, i + 2);
 			Add(GameObject.ObjectType.WALL, i + 9, 2);
 			Add(GameObject.ObjectType.WALL, i + 9, 3);
@@ -85,11 +89,13 @@ public class World {
 		for (int i = 0; i < 3; i++) {
 			Add(GameObject.ObjectType.POINT, 8, i + 2);
 			Add(GameObject.ObjectType.POINT, 6, i + 10);
+			numPoints += 2;
 			Add(GameObject.ObjectType.WALL, 12, i + 10);
 			Add(GameObject.ObjectType.WALL, 2, i + 2);
 			Add(GameObject.ObjectType.WALL, 2, i + 5);
 		}
 		Add(GameObject.ObjectType.POINT, 6, 9);
+		numPoints++;
 		Add(GameObject.ObjectType.EMPTY, 7, 7);
 	}
 
@@ -110,9 +116,11 @@ public class World {
 		case PACMAN:
 			return new PacMan(x, y, false, y);
 		case PELLET:
-			return new Pellet(x, y ,false);
+			return new Pellet(x, y, false);
 		case POINT:
-			return new Point(x, y);
+			Point thisPoint = new Point(x, y, false);
+			points.put(new Dimension(x, y), thisPoint);
+			return new Point(x, y, false);
 		case WALL:
 			Wall thisWall = new Wall(x, y);
 			walls.put(new Dimension(x, y), thisWall);
@@ -128,7 +136,7 @@ public class World {
 	}
 
 	public boolean isPellet(int x, int y) {
-		return p1.xposition == x && p1.yposition == y && !p1.isEaten 
+		return p1.xposition == x && p1.yposition == y && !p1.isEaten
 				|| p2.xposition == x && p2.yposition == y && !p2.isEaten
 				|| p3.xposition == x && p3.yposition == y && !p3.isEaten
 				|| p4.xposition == x && p4.yposition == y && !p4.isEaten;
@@ -137,6 +145,11 @@ public class World {
 	public boolean isWall(int x, int y) {
 		Dimension myPoint = new Dimension(x, y);
 		return walls.containsKey(myPoint);
+	}
+	
+	public boolean isPoint(int x, int y) {
+		Dimension myPoint = new Dimension(x, y);
+		return points.containsKey(myPoint);
 	}
 
 }
