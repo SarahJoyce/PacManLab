@@ -83,6 +83,7 @@ public class PacManGame extends JPanel implements KeyListener {
 			game.player.die();
 		}
 		if (game.isPellet(game.player.xposition, game.player.yposition)) {
+			removePellet();
 			game.Inky.makeEdible();
 			game.Blinky.makeEdible();
 			game.Pinky.makeEdible();
@@ -101,6 +102,25 @@ public class PacManGame extends JPanel implements KeyListener {
 		}
 		if (ghost.xposition == game.player.xposition && ghost.yposition == game.player.yposition && ghost.isEdible) {
 			ghost.die();
+		}
+	}
+	
+	private void removePellet() {
+		if (game.player.xposition == game.p1.xposition 
+				&& game.player.yposition == game.p1.yposition) {
+			game.p1.isEaten = true;
+		}
+		if (game.player.xposition == game.p2.xposition 
+				&& game.player.yposition == game.p2.yposition) {
+			game.p2.isEaten = true;
+		}
+		if (game.player.xposition == game.p3.xposition 
+				&& game.player.yposition == game.p3.yposition) {
+			game.p3.isEaten = true;
+		}
+		if (game.player.xposition == game.p4.xposition 
+				&& game.player.yposition == game.p4.yposition) {
+			game.p4.isEaten = true;
 		}
 	}
 

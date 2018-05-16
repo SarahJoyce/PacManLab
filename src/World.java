@@ -24,10 +24,10 @@ public class World {
 		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY, Color.RED);
 		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY, Color.PINK);
 		Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY, Color.ORANGE);
-		p1 = new Pellet(13, 1);
-		p2 = new Pellet(1, 1);
-		p3 = new Pellet(1, 13);
-		p4 = new Pellet(13, 13);
+		p1 = new Pellet(13, 1, false);
+		p2 = new Pellet(1, 1, false);
+		p3 = new Pellet(1, 13, false);
+		p4 = new Pellet(13, 13, false);
 		board2.add(Inky);
 		board2.add(Blinky);
 		board2.add(Pinky);
@@ -110,7 +110,7 @@ public class World {
 		case PACMAN:
 			return new PacMan(x, y, false, y);
 		case PELLET:
-			return new Pellet(x, y);
+			return new Pellet(x, y ,false);
 		case POINT:
 			return new Point(x, y);
 		case WALL:
@@ -128,8 +128,10 @@ public class World {
 	}
 
 	public boolean isPellet(int x, int y) {
-		return p1.xposition == x && p1.yposition == y || p2.xposition == x && p2.yposition == y
-				|| p3.xposition == x && p3.yposition == y || p4.xposition == x && p4.yposition == y;
+		return p1.xposition == x && p1.yposition == y && !p1.isEaten 
+				|| p2.xposition == x && p2.yposition == y && !p2.isEaten
+				|| p3.xposition == x && p3.yposition == y && !p3.isEaten
+				|| p4.xposition == x && p4.yposition == y && !p4.isEaten;
 	}
 
 	public boolean isWall(int x, int y) {
