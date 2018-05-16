@@ -50,7 +50,7 @@ public class GraphicsEngine implements IEverythingGraphics {
 		java.awt.Point pt = getCoords(ghost);
 		g.setColor(Color.BLACK);
 		g.fillRect(pt.x, pt.y, 30, 30);
-		g.setColor(Color.PINK);
+		g.setColor(ghost.color);
 		g.fillRect(pt.x, pt.y, 26, 26);
 	}
 

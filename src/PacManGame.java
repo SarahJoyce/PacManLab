@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
+import java.util.Timer;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ public class PacManGame extends JPanel implements KeyListener {
 
 	IEverythingGraphics graphicsEngine;
 	World game;
+	Timer ghostTimer = new Timer();
 
 	public PacManGame(IEverythingGraphics graphicsEngine) {
 		this.graphicsEngine = graphicsEngine;
@@ -59,6 +61,13 @@ public class PacManGame extends JPanel implements KeyListener {
 		}
 		if (game.isGhost(game.player.xposition, game.player.yposition)) {
 			game.player.die();
+		}
+		if (game.isPellet(game.player.xposition, game.player.yposition)) {
+			game.Inky.makeEdible();
+			game.Blinky.makeEdible();
+			game.Pinky.makeEdible();
+			game.Clyde.makeEdible();
+			ghostTimer.schedule(new ghostTimerTask(game), 10000);
 		}
 		repaint();
 	}

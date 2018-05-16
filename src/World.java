@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.*;
 
@@ -19,10 +20,10 @@ public class World {
 	public World() {
 		initBoardList();
 		player = new PacMan(7, 7, false, 0);
-		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY);
-		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
-		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
-		Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
+		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY, Color.CYAN);
+		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY, Color.RED);
+		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY, Color.PINK);
+		Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY, Color.ORANGE);
 		p1 = new Pellet(13, 1);
 		p2 = new Pellet(1, 1);
 		p3 = new Pellet(1, 13);
@@ -100,7 +101,7 @@ public class World {
 		case EMPTY:
 			return new EmptyGameObject(x, y);
 		case GHOST:
-			return new Ghost(x, y, false, false, type);
+			return new Ghost(x, y, false, false, type, Color.PINK);
 		case PACMAN:
 			return new PacMan(x, y, false, y);
 		case PELLET:
