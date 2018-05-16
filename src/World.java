@@ -97,6 +97,10 @@ public class World {
 		board2.add(CreateGameObject(type, x, y));
 	}
 
+	public void addEmpty(int x, int y) {
+		Add(GameObject.ObjectType.EMPTY, x, y);
+	}
+
 	private GameObject CreateGameObject(GameObject.ObjectType type, int x, int y) {
 		switch (type) {
 		case EMPTY:

@@ -35,22 +35,26 @@ public class PacManGame extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		game.Inky.nextPosn();
-		if (game.isWall(game.Inky.xposition, game.Inky.yposition)) {
-			game.Inky.prevPosn();
+		if (!isArrowKey(e)) {
+			return;
 		}
-		game.Pinky.nextPosn();
-		if (game.isWall(game.Pinky.xposition, game.Pinky.yposition)) {
-			game.Pinky.prevPosn();
-		}
-		game.Blinky.nextPosn();
-		if (game.isWall(game.Blinky.xposition, game.Blinky.yposition)) {
-			game.Blinky.prevPosn();
-		}
-		game.Clyde.nextPosn();
-		if (game.isWall(game.Clyde.xposition, game.Clyde.yposition)) {
-			game.Clyde.prevPosn();
-		}
+		moveGhost(game.Inky);
+		moveGhost(game.Blinky);
+		moveGhost(game.Pinky);
+		moveGhost(game.Clyde);
+		movePacMan(e);
+		repaint();
+	}
+
+	private boolean isArrowKey(KeyEvent e) {
+		int key = e.getKeyCode();
+		// try to find correct enum values so no magic numbers
+		return key == 37 || key == 38 || key == 39 || key == 40;
+	}
+
+	private void movePacMan(KeyEvent e) {
+		int prevX = game.player.xposition;
+		int prevY = game.player.yposition;
 		if (e.getKeyCode() == 38) {
 			game.player.moveUp();
 			if (game.isWall(game.player.xposition, game.player.yposition)) {
@@ -75,7 +79,7 @@ public class PacManGame extends JPanel implements KeyListener {
 				game.player.moveLeft();
 			}
 		}
-		if (game.isGhost(game.player.xposition, game.player.yposition)) {
+		if (game.isGhost(game.player.xposition, game.player.yposition) && !game.Inky.isEdible) {
 			game.player.die();
 		}
 		if (game.isPellet(game.player.xposition, game.player.yposition)) {
@@ -85,7 +89,19 @@ public class PacManGame extends JPanel implements KeyListener {
 			game.Clyde.makeEdible();
 			ghostTimer.schedule(new ghostTimerTask(game), 10000);
 		}
-		repaint();
+		if (game.player.xposition != prevX || game.player.yposition != prevY) {
+			game.addEmpty(prevX, prevY);
+		}
+	}
+
+	private void moveGhost(Ghost ghost) {
+		ghost.nextPosn();
+		if (game.isWall(ghost.xposition, ghost.yposition)) {
+			ghost.prevPosn();
+		}
+		if (ghost.xposition == game.player.xposition && ghost.yposition == game.player.yposition && ghost.isEdible) {
+			ghost.die();
+		}
 	}
 
 	@Override

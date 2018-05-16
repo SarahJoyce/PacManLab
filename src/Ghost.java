@@ -8,7 +8,7 @@ public class Ghost extends MovingObjects {
 
 	boolean isEdible;
 	Color color;
-	
+
 	private int prevX;
 	private int prevY;
 
@@ -38,11 +38,13 @@ public class Ghost extends MovingObjects {
 	// function to determine the ghosts' random movement
 	public void nextPosn() {
 		Random rand = new Random();
+		// constant called directions etc equal to 4
 		int direc = rand.nextInt(4);
-		
+
 		prevX = super.xposition;
 		prevY = super.yposition;
-		
+
+		// enum this
 		if (direc == 0) {
 			moveRight();
 		} else if (direc == 1) {
@@ -53,7 +55,7 @@ public class Ghost extends MovingObjects {
 			moveUp();
 		}
 	}
-	
+
 	public void prevPosn() {
 		super.xposition = prevX;
 		super.yposition = prevY;
@@ -69,7 +71,7 @@ public class Ghost extends MovingObjects {
 		this.isEdible = true;
 		color = Color.WHITE;
 	}
-	
+
 	public void reset() {
 		this.isEdible = false;
 		color = initialColor;

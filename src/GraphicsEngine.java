@@ -22,6 +22,11 @@ public class GraphicsEngine implements IEverythingGraphics {
 				drawEmptySquare((EmptyGameObject) obj, g);
 			}
 		}
+		drawGhost(game.Blinky, g);
+		drawGhost(game.Clyde, g);
+		drawGhost(game.Inky, g);
+		drawGhost(game.Pinky, g);
+		drawPacMan(game.player, g);
 	}
 
 	private void drawWall(Wall wall, Graphics g) {

@@ -1,13 +1,13 @@
 import java.util.TimerTask;
 
 public class ghostTimerTask extends TimerTask {
-	
+
 	World game;
 
 	public ghostTimerTask(World world) {
 		game = world;
 	}
-	
+
 	@Override
 	public void run() {
 		game.Inky.reset();
