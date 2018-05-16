@@ -5,8 +5,6 @@ public class PacMan extends MovingObjects{
 	final int initialY;
 	
 	int points;
-	/*int xpos;
-	int ypos;*/
 	int numLives = 4;
 	
 	public PacMan() {
@@ -20,8 +18,6 @@ public class PacMan extends MovingObjects{
 	public PacMan(int xpos, int ypos, boolean isMoving, int p) {
 		super(xpos, ypos, isMoving);
 		super.objectType = ObjectType.PACMAN;
-		/*this.xpos = xpos;
-		this.ypos = ypos;*/
 		initialX = xpos;
 		initialY = ypos;
 		points = p;

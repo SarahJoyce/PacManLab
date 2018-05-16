@@ -2,13 +2,9 @@
 public abstract class MovingObjects extends GameObject {
 	
 	boolean isMoving;
-	/*int currentX;
-	int currentY;*/
 	
 	protected MovingObjects(int currentX, int currentY, boolean isMoving) {
 		super(currentX, currentY);
-		/*this.currentX = currentX;
-		this.currentY = currentY;*/
 		this.isMoving = isMoving;
 	}
 	
