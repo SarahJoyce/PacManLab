@@ -2,9 +2,6 @@ public class Ghost extends MovingObjects{
 	private final int initialX;
 	private final int initialY;
 	
-	int xpos;
-	int ypos;
-	
 	boolean ghostState;
 	
 	GameObject.ObjectType oldType;
@@ -23,8 +20,6 @@ public class Ghost extends MovingObjects{
 		super.objectType = ObjectType.GHOST;
 		initialX = xpos;
 		initialY = ypos;
-		this.xpos = xpos;
-		this.ypos = ypos;
 		ghostState = state;
 		this.oldType = oldType;
 	}
@@ -48,7 +43,7 @@ public class Ghost extends MovingObjects{
 	
 	@Override
 	public void die() {
-		xpos = initialX;
-		ypos = initialY;
+		super.xposition = initialX;
+		super.yposition = initialY;
 	}
 }

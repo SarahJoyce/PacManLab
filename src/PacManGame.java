@@ -36,15 +36,27 @@ public class PacManGame extends JPanel implements KeyListener {
 		System.out.println(e.getKeyCode());
 		if (e.getKeyCode() == 38) {
 			game.player.moveUp();
+			if (game.isWall(game.player.xposition, game.player.yposition)) {
+				game.player.moveDown();
+			}
 		}
 		if (e.getKeyCode() == 40) {
 			game.player.moveDown();
+			if (game.isWall(game.player.xposition, game.player.yposition)) {
+				game.player.moveUp();
+			}
 		}
 		if (e.getKeyCode() == 37) {
 			game.player.moveLeft();
+			if (game.isWall(game.player.xposition, game.player.yposition)) {
+				game.player.moveRight();
+			}
 		}
 		if (e.getKeyCode() == 39) {
 			game.player.moveRight();
+			if (game.isWall(game.player.xposition, game.player.yposition)) {
+				game.player.moveLeft();
+			}
 		}
 		repaint();
 	}

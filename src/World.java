@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.awt.Dimension;
+import java.util.*;
 
 public class World {
 	ArrayList<GameObject> board2;
@@ -8,19 +9,33 @@ public class World {
 	Ghost Blinky;
 	Ghost Pinky;
 	Ghost Clyde;
+	Pellet p1;
+	Pellet p2;
+	Pellet p3;
+	Pellet p4;
+	
+	HashMap<Dimension, Wall> walls = new HashMap<Dimension, Wall>();
 
 	public World() {
 		initBoardList();
-		player = new PacMan(6, 7, false, 0);
+		player = new PacMan(7, 7, false, 0);
 		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY);
 		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY);
 		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY);
 		Clyde = new Ghost(5, 11, false, false, GameObject.ObjectType.EMPTY);
-		board2.add(player);
+		p1 = new Pellet(13, 1);
+		p2 = new Pellet(1, 1);
+		p3 = new Pellet(1, 13);
+		p4 = new Pellet(13, 13);
 		board2.add(Inky);
 		board2.add(Blinky);
 		board2.add(Pinky);
 		board2.add(Clyde);
+		board2.add(p1);
+		board2.add(p2);
+		board2.add(p3);
+		board2.add(p4);
+		board2.add(player);
 	}
 
 	private void initBoardList() {
@@ -72,10 +87,6 @@ public class World {
 			Add(GameObject.ObjectType.WALL, 2, i + 2);
 			Add(GameObject.ObjectType.WALL, 2, i + 5);
 		}
-		Add(GameObject.ObjectType.PELLET, 13, 1);
-		Add(GameObject.ObjectType.PELLET, 1, 1);
-		Add(GameObject.ObjectType.PELLET, 1, 13);
-		Add(GameObject.ObjectType.PELLET, 13, 13);
 		Add(GameObject.ObjectType.POINT, 6, 9);
 		Add(GameObject.ObjectType.EMPTY, 7, 7);
 	}
@@ -97,15 +108,31 @@ public class World {
 		case POINT:
 			return new Point(x, y);
 		case WALL:
-			return new Wall(x, y);
+			Wall thisWall = new Wall(x, y);
+			walls.put(new Dimension(x, y), thisWall);
+			return thisWall;
 		default:
 			throw new RuntimeException();
 		}
 	}
-
-	// gets rid of objects; for example when pacman eats the pellet, it has to
-	// disappear
-	public void delete() {
+	
+	public boolean isGhost(int x, int y) {
+		return Pinky.xposition == x && Pinky.yposition == y 
+				|| Inky.xposition == x && Inky.yposition == y
+				|| Blinky.xposition == x && Blinky.yposition == y
+				|| Clyde.xposition == x && Clyde.yposition == y;
+	}
+	
+	public boolean isPellet(int x, int y) {
+		return p1.xposition == x && p1.yposition == y 
+				|| p2.xposition == x && p2.yposition == y
+				|| p3.xposition == x && p3.yposition == y
+				|| p4.xposition == x && p4.yposition == y;
+	}
+	
+	public boolean isWall(int x, int y) {
+		Dimension myPoint = new Dimension(x, y);
+		return walls.containsKey(myPoint);
 	}
 
 }
