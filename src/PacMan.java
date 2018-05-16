@@ -5,7 +5,7 @@ public class PacMan extends MovingObjects {
 	final int initialY;
 
 	int points;
-	int numLives = 4;
+	int numLives = 2;
 
 	public PacMan() {
 		super(0, 0, false);

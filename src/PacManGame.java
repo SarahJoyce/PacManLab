@@ -45,9 +45,11 @@ public class PacManGame extends JPanel implements KeyListener {
 		movePacMan(e);
 		if (game.numPoints < 1) {
 			System.out.println("You Win!");
+			this.setVisible(false);
 		}
 		if (game.player.numLives < 0) {
 			System.out.println("You Lose.");
+			this.setVisible(false);
 		}
 		repaint();
 	}
@@ -94,7 +96,7 @@ public class PacManGame extends JPanel implements KeyListener {
 			game.Blinky.makeEdible();
 			game.Pinky.makeEdible();
 			game.Clyde.makeEdible();
-			ghostTimer.schedule(new ghostTimerTask(game), 10000);
+			ghostTimer.schedule(new ghostTimerTask(game), 5000);
 		}
 		if (game.isPoint(game.player.xposition, game.player.yposition)) {
 			removePoint();
