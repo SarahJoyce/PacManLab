@@ -119,7 +119,7 @@ public class GraphicsEngine implements IEverythingGraphics {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("TimesRoman", Font.BOLD, 25)); 
 		//points
-		g.drawString("Points: " + game.numPoints, 15, 450);
+		g.drawString("Points: " + game.userPoints, 15, 450);
 		//lives
 		g.drawString("Lives: " + game.player.numLives, 350, 450);
 	}
