@@ -9,19 +9,26 @@ public class GraphicsEngine implements IEverythingGraphics {
 	public void draw(Graphics g, World game) {
 		for (int i = 0; i < game.board2.size(); i++) {
 			GameObject obj = game.board2.get(i);
-			if (obj.objectType == GameObject.ObjectType.WALL) {
-				drawWall((Wall) obj, g);
-			} else if (obj.objectType == GameObject.ObjectType.PELLET) {
-				drawPellet((Pellet) obj, g);
-			} else if (obj.objectType == GameObject.ObjectType.POINT) {
-				drawPoint((Point) obj, g);
-			} else if (obj.objectType == GameObject.ObjectType.GHOST) {
-				drawGhost((Ghost) obj, g);
-			} else if (obj.objectType == GameObject.ObjectType.PACMAN) {
-				drawPacMan((PacMan) obj, g);
-			} else {
-				drawEmptySquare((EmptyGameObject) obj, g);
-			}
+			switch(obj.objectType) {
+				case WALL:
+					drawWall((Wall) obj, g);
+					break;
+				case PELLET:
+					drawPellet((Pellet) obj, g);
+					break;
+				case POINT:
+					drawPoint((Point) obj, g);
+					break;
+				case GHOST:
+					drawGhost((Ghost) obj, g);
+					break;
+				case PACMAN:
+					drawPacMan((PacMan) obj, g);
+					break;
+				default:
+					drawEmptySquare((EmptyGameObject) obj, g);
+					break;
+		}
 		}
 		drawGhost(game.Blinky, g);
 		drawGhost(game.Clyde, g);
@@ -65,8 +72,41 @@ public class GraphicsEngine implements IEverythingGraphics {
 		java.awt.Point pt = getCoords(pacman);
 		g.setColor(Color.BLACK);
 		g.fillRect(pt.x, pt.y, 30, 30);
-		g.setColor(Color.YELLOW);
-		g.fillArc(pt.x, pt.y, 26, 26, 30, 300);
+		switch(pacman.direction) {
+		case "right":
+			//resting position
+			g.setColor(Color.YELLOW);
+			g.fillArc(pt.x, pt.y, 26, 26, 30, 300);
+			//open
+			//g.fillArc(pt.x,pt.y,26,26,60,250);
+			//closed
+			//g.fillOval(pt.x,pt.y,26,26);
+			break;
+		case "left":
+			//resting position
+			g.setColor(Color.YELLOW);
+			g.fillArc(pt.x, pt.y, 26, 26, 210, 300);
+			break;
+		case "up":
+			//resting position
+			g.setColor(Color.YELLOW);
+			g.fillArc(pt.x, pt.y, 26, 26, 120, 300);
+			break;
+		case "down":
+			//resting position
+			g.setColor(Color.YELLOW);
+			g.fillArc(pt.x, pt.y, 26, 26, 300, 300);
+			break;
+		default:
+			//resting position
+			g.setColor(Color.YELLOW);
+			g.fillArc(pt.x, pt.y, 26, 26, 30, 300);
+			//open
+			//g.fillArc(pt.x,pt.y,26,26,60,250);
+			//closed
+			//g.fillOval(pt.x,pt.y,26,26);
+			break;
+	}
 	}
 
 	private void drawEmptySquare(EmptyGameObject empty, Graphics g) {

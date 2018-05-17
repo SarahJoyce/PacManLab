@@ -3,6 +3,7 @@ public class PacMan extends MovingObjects {
 
 	final int initialX;
 	final int initialY;
+	String direction;
 
 	int numLives = 3;
 
@@ -11,13 +12,15 @@ public class PacMan extends MovingObjects {
 		super.objectType = ObjectType.PACMAN;
 		initialX = 0;
 		initialY = 0;
+		direction = "right";
 	}
 
-	public PacMan(int xpos, int ypos, boolean isMoving) {
+	public PacMan(int xpos, int ypos, boolean isMoving, String dir) {
 		super(xpos, ypos, isMoving);
 		super.objectType = ObjectType.PACMAN;
 		initialX = xpos;
 		initialY = ypos;
+		direction = dir;
 	}
 
 	@Override
