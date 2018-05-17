@@ -31,7 +31,7 @@ public class PacMan extends MovingObjects {
 		super.xposition = initialX;
 		super.yposition = initialY;
 		numLives--;
-		System.out.println("You died. " + numLives + " Lives Remaining");
+		System.out.println("You died.\t" + numLives + " Lives Remaining");
 	}
 
 }

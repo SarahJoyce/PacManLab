@@ -16,6 +16,7 @@ public class PacManGame extends JPanel implements KeyListener {
 	IEverythingGraphics graphicsEngine;
 	World game;
 	Timer ghostTimer = new Timer();
+	int numGhostsEaten = 0;
 
 	public PacManGame(IEverythingGraphics graphicsEngine) {
 		this.graphicsEngine = graphicsEngine;
@@ -46,14 +47,14 @@ public class PacManGame extends JPanel implements KeyListener {
 		movePacMan(e);
 		repaint();
 		if (game.numPoints < 1) {
-			System.out.println("You Win!");
+			System.out.println("You Win!\tTotal Points: " + game.userPoints);
 			this.setVisible(false);
 		}
 		if (game.player.numLives < 1) {
 			System.out.println("You Lose.");
 			this.setVisible(false);
 		}
-		
+
 	}
 
 	private boolean isArrowKey(KeyEvent e) {
@@ -107,10 +108,11 @@ public class PacManGame extends JPanel implements KeyListener {
 			game.Pinky.makeEdible();
 			game.Clyde.makeEdible();
 			ghostTimer.schedule(new ghostTimerTask(game), 5000);
+			game.userPoints += 25;
+			System.out.println("Power Bonus!\t+25 points");
 		}
 		if (game.isPoint(game.player.xposition, game.player.yposition)) {
 			removePoint();
-			game.userPoints = game.userPoints + 10;
 		}
 		if (game.player.xposition != prevX || game.player.yposition != prevY) {
 			game.addEmpty(prevX, prevY);
@@ -124,24 +126,23 @@ public class PacManGame extends JPanel implements KeyListener {
 		}
 		if (ghost.xposition == game.player.xposition && ghost.yposition == game.player.yposition && ghost.isEdible) {
 			ghost.die();
+			numGhostsEaten++;
+			game.userPoints += 50 * numGhostsEaten;
+			System.out.println("Ghost Bonus!\t+" + 50 * numGhostsEaten + " points");
 		}
 	}
-	
+
 	private void removePellet() {
-		if (game.player.xposition == game.p1.xposition 
-				&& game.player.yposition == game.p1.yposition) {
+		if (game.player.xposition == game.p1.xposition && game.player.yposition == game.p1.yposition) {
 			game.p1.isEaten = true;
 		}
-		if (game.player.xposition == game.p2.xposition 
-				&& game.player.yposition == game.p2.yposition) {
+		if (game.player.xposition == game.p2.xposition && game.player.yposition == game.p2.yposition) {
 			game.p2.isEaten = true;
 		}
-		if (game.player.xposition == game.p3.xposition 
-				&& game.player.yposition == game.p3.yposition) {
+		if (game.player.xposition == game.p3.xposition && game.player.yposition == game.p3.yposition) {
 			game.p3.isEaten = true;
 		}
-		if (game.player.xposition == game.p4.xposition 
-				&& game.player.yposition == game.p4.yposition) {
+		if (game.player.xposition == game.p4.xposition && game.player.yposition == game.p4.yposition) {
 			game.p4.isEaten = true;
 		}
 	}
@@ -150,10 +151,11 @@ public class PacManGame extends JPanel implements KeyListener {
 		Dimension myPoint = new Dimension(game.player.xposition, game.player.yposition);
 		if (!game.points.get(myPoint).isEaten) {
 			game.points.get(myPoint).isEaten = true;
+			game.userPoints = game.userPoints + 10;
 			game.numPoints--;
 		}
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 
