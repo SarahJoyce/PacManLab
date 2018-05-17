@@ -21,7 +21,6 @@ public class World {
 	public World() {
 		initBoardList();
 		player = new PacMan(7, 7, false, "right");
-		System.out.println(player.direction);
 		Inky = new Ghost(2, 11, false, false, GameObject.ObjectType.EMPTY, Color.CYAN);
 		Blinky = new Ghost(3, 11, false, false, GameObject.ObjectType.EMPTY, Color.RED);
 		Pinky = new Ghost(4, 11, false, false, GameObject.ObjectType.EMPTY, Color.PINK);
@@ -54,12 +53,10 @@ public class World {
 			Add(GameObject.ObjectType.POINT, i + 2, 13);
 			Add(GameObject.ObjectType.POINT, i + 2, 1);
 			Add(GameObject.ObjectType.POINT, 13, i + 2);
-			numPoints += 4;
 		}
 		for (int i = 0; i < 5; i++) {
 			Add(GameObject.ObjectType.POINT, 3, i + 2);
 			Add(GameObject.ObjectType.POINT, 6, i + 2);
-			numPoints += 2;
 			Add(GameObject.ObjectType.WALL, i + 2, 8);
 			Add(GameObject.ObjectType.WALL, 4, i + 2);
 			Add(GameObject.ObjectType.WALL, 5, i + 2);
@@ -76,7 +73,6 @@ public class World {
 			Add(GameObject.ObjectType.POINT, 8, i + 7);
 			Add(GameObject.ObjectType.POINT, 11, i + 7);
 			Add(GameObject.ObjectType.POINT, i + 9, 4);
-			numPoints += 7;
 			Add(GameObject.ObjectType.WALL, 7, i + 2);
 			Add(GameObject.ObjectType.WALL, i + 9, 2);
 			Add(GameObject.ObjectType.WALL, i + 9, 3);
@@ -90,13 +86,11 @@ public class World {
 		for (int i = 0; i < 3; i++) {
 			Add(GameObject.ObjectType.POINT, 8, i + 2);
 			Add(GameObject.ObjectType.POINT, 6, i + 10);
-			numPoints += 2;
 			Add(GameObject.ObjectType.WALL, 12, i + 10);
 			Add(GameObject.ObjectType.WALL, 2, i + 2);
 			Add(GameObject.ObjectType.WALL, 2, i + 5);
 		}
 		Add(GameObject.ObjectType.POINT, 6, 9);
-		numPoints++;
 		Add(GameObject.ObjectType.EMPTY, 7, 7);
 	}
 

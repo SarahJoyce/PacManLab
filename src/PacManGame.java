@@ -110,6 +110,7 @@ public class PacManGame extends JPanel implements KeyListener {
 		}
 		if (game.isPoint(game.player.xposition, game.player.yposition)) {
 			removePoint();
+			game.numPoints = game.numPoints + 10;
 		}
 		if (game.player.xposition != prevX || game.player.yposition != prevY) {
 			game.addEmpty(prevX, prevY);
@@ -148,7 +149,6 @@ public class PacManGame extends JPanel implements KeyListener {
 	private void removePoint() {
 		Dimension myPoint = new Dimension(game.player.xposition, game.player.yposition);
 		if (!game.points.get(myPoint).isEaten) {
-			game.numPoints = game.numPoints + 10;
 			game.points.get(myPoint).isEaten = true;
 		}
 	}
